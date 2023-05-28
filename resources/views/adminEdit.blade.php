@@ -49,7 +49,7 @@
                 <label for="smt">Semester </label>
                 <select name="semester_id" id="smt" required>
                     @foreach ($semesters as $semester)
-                        <option value="{{ $semester->id }}" @if($semester->id == $materis->semester_id)selected @endif>{{ $semester->id }}</option>
+                        <option value="{{ $semester->id }}" @if($semester->id == $materis->semester_id)selected @endif>{{ $semester->semester }}</option>
                     @endforeach
                 </select>
             </div>
@@ -81,14 +81,13 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script>
                 $(document).ready(function() {
-                    $('#smt');
                     $('#matkul').prop('disabled', true); 
 
                     $('#smt').change(function() {
                         var selectedSemesterId = $(this).val();
 
                         if (selectedSemesterId === '') {
-                            $('#matkul').val('').prop('disabled', true); 
+                            $('#matkul').prop('disabled', false); 
                             return;
                         }
 
@@ -98,12 +97,16 @@
                             var semesterId = $(this).data('semester-id');
 
                             if (semesterId == selectedSemesterId || semesterId === undefined) {
-                                
+                                $(this).show();
                             } else {
-                                
+                                $(this).hide();
                             }
                         });
                     });
+                });
+
+                $('#smt').click(function() { 
+                    $('#matkul').val('');
                 });
             </script>
         </div>
