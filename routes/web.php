@@ -19,18 +19,7 @@ Route::get('/', function () {
     return view('adminHome');
 });
 
-Route::get('/adminInput', function () {
-    return view('adminInput');
-});
-
-Route::get('/adminView', function () {
-    return view('adminView');
-});
-
-Route::get('/adminShow', function () {
-    return view('adminShow');
-});
-
+Route::resource('materi', MateriController::class)->except(['update']);
 
 Route::get('/adminHome', [MateriController::class, 'home'])->name('adminHome');
 
@@ -44,4 +33,6 @@ Route::post('/materi/create', [MateriController::class, 'store'])->name('materi.
 
 Route::get('/adminEdit/{materis}', [MateriController::class, 'edit'])->name('edit');
 
-Route::resource('materi', MateriController::class);
+Route::put('/adminEdit/{materis}', [MateriController::class, 'update'])->name('materi.update');
+
+Route::delete('/destroy/{materis}', [MateriController::class, 'destroy'])->name('materi.destroy');

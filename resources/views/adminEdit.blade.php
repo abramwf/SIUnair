@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/adminInput.css') }}">
     <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
     <link rel="stylesheet" href="{{ asset('css/env.css') }}">
-    <title>Admin Input</title>
+    <title>Admin Edit</title>
 </head>
 <body>
     <nav class="nav">
@@ -37,7 +37,8 @@
     <div class="head">
         <center><h1>Edit Materi</h1></center>
     </div>
-    <form action="{{ route('materi.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('materi.update', $materis->id) }}" method="POST" enctype="multipart/form-data">
+        @method('PUT')
         @csrf
         <div class="form-input">
             <label for="judul"> Judul </label>
@@ -48,7 +49,7 @@
                 <label for="smt">Semester </label>
                 <select name="semester_id" id="smt" required>
                     @foreach ($semesters as $semester)
-                        <option value="{{ $semester->semester }}">{{ $semester->semester }}</option>
+                        <option value="{{ $semester->id }}" @if($semester->id == $materis->semester_id)selected @endif>{{ $semester->id }}</option>
                     @endforeach
                 </select>
             </div>
@@ -56,15 +57,15 @@
                 <label for="kategori"> Kategori </label>
                 <div class="kategori-container-list">
                     <div class="kategori-container-list-item">
-                        <input type="checkbox" id="ebook" name="ebook" value="{{ $materis->ebook }}">
+                        <input type="checkbox" id="ebook" name="ebook" value="{{ $materis->ebook }}" @if($materis->ebook)checked @endif>
                         <label for="ebook">Ebook</label>
                     </div>
                     <div class="kategori-container-list-item">
-                        <input type="checkbox" id="ppt" name="ppt" value="{{ $materis->ppt }}">
+                        <input type="checkbox" id="ppt" name="ppt" value="{{ $materis->ppt }}" @if($materis->ppt)checked @endif>
                         <label for="ppt">PPT</label>    
                     </div>
                     <div class="kategori-container-list-item">
-                        <input type="checkbox" id="consol" name="contoh_soal" value="{{ $materis->contoh_soal }}">
+                        <input type="checkbox" id="consol" name="contoh_soal" value="{{ $materis->contoh_soal }}" @if($materis->contoh_soal)checked @endif>
                         <label for="consol">Contoh Soal</label>
                     </div>
                 </div>
@@ -74,14 +75,14 @@
             <label for="matkul">Nama Mata Kuliah </label>
             <select name="matkul_id" id="matkul" required>
                 @foreach ($matkuls as $matkul)
-                    <option value="{{ $matkul->id }}" data-semester-id="{{ $matkul->semester_id }}">{{ $matkul->matkul }}</option>
+                    <option value="{{ $matkul->id }}" data-semester-id="{{ $matkul->semester_id }}" @if($matkul->id == $materis->matkul_id)selected @endif>{{ $matkul->matkul }}</option>
                 @endforeach
             </select>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script>
                 $(document).ready(function() {
-                    $('#smt').val();
-                    $('#matkul').prop('disabled', false); 
+                    $('#smt');
+                    $('#matkul').prop('disabled', true); 
 
                     $('#smt').change(function() {
                         var selectedSemesterId = $(this).val();
@@ -97,9 +98,9 @@
                             var semesterId = $(this).data('semester-id');
 
                             if (semesterId == selectedSemesterId || semesterId === undefined) {
-                                $(this).show();
+                                
                             } else {
-                                $(this).hide();
+                                
                             }
                         });
                     });
@@ -118,7 +119,8 @@
         </div> --}}
         <div class="form-input">
             <label>Deskripsi</label>
-            <textarea name="deskripsi" id="deskripsi" value="{{ $materis->deskripsi }}"></textarea>
+            <textarea name="deskripsi" id="deskripsi" value="{{ $materis->deskripsi }}">{{ $materis->deskripsi }}</textarea>
+            
         </div>
         <div class="form-input">
             <label for="file">Link Drive</label>
@@ -132,6 +134,9 @@
            Update
         </button>
     </form>
+    <script>
+        
+    </script>
     <script src="{{ asset('js/adminInput.js') }}"></script>
     <script src="{{ asset('js/nav.js') }}"></script>
 </body>

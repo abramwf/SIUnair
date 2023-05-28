@@ -121,16 +121,19 @@ class MateriController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateMateriRequest $request, Materi $materi)
+    public function update(UpdateMateriRequest $request, Materi $materis)
     {
-        //
+        $requestData = $request->all();
+        $materis->update($requestData);
+        return Redirect::route('adminList');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Materi $materi)
+    public function destroy(Materi $materis)
     {
-        //
+        $materis->delete();
+        return Redirect::route('adminList');
     }
 }

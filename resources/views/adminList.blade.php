@@ -78,8 +78,15 @@
                         </div>
                         <div class="action-buttons">
                             <button class="button grey"> <a style="color:black;" href="{{ route('show', $materi->id) }}">View</a> <img src="/assets/icon/material-symbols_view-carousel-outline-rounded.png" alt=""></button>
-                            <button class="button green">Edit <img src="/assets/icon/material-symbols_edit-outline-rounded.png" alt=""></button>
-                            <button class="button red">Delete <img src="/assets/icon/mdi_trash-can-outline.png" alt=""></button>
+                            <form action="{{ route('edit', $materi) }}" method="GET">
+                                @csrf
+                                <button type="submit" class="button green">Edit <img src="/assets/icon/material-symbols_edit-outline-rounded.png" alt=""></button>
+                            </form>
+                            <form action="{{ route('materi.destroy', $materi) }}" method="post">
+                                @method('delete')
+                                @csrf
+                                <button type="submit" class="button red">Delete <img src="/assets/icon/mdi_trash-can-outline.png" alt=""></button>
+                            </form>
                         </div>
                     </div>
                 @endforeach
