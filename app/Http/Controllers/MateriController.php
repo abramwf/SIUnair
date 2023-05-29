@@ -17,7 +17,7 @@ class MateriController extends Controller
      */
 
     public function home() {
-        return view('adminHome');
+        return view('admin/adminHome');
     }
 
     public function list() {
@@ -32,7 +32,7 @@ class MateriController extends Controller
             return $item;
         });
 
-        return view('adminList', compact('materis', 'matkuls', 'semesters'));
+        return view('admin/adminList', compact('materis', 'matkuls', 'semesters'));
     }
 
     public function course($id)
@@ -48,7 +48,7 @@ class MateriController extends Controller
             return $item;
         });
 
-        return view('adminView', compact('materis', 'matkuls', 'semesters'));
+        return view('admin/adminView', compact('materis', 'matkuls', 'semesters'));
     }
 
     /**
@@ -58,7 +58,7 @@ class MateriController extends Controller
     {
         $semesters = Semester::all();
         $matkuls = Matkul::all();
-        return view('adminInput', compact('semesters', 'matkuls'));
+        return view('admin/adminInput', compact('semesters', 'matkuls'));
     }
 
     /**
@@ -105,7 +105,7 @@ class MateriController extends Controller
 
         $materis = Materi::find($id);
 
-        return view('adminShow', compact('materis', 'matkuls', 'semesters'));
+        return view('admin/adminShow', compact('materis', 'matkuls', 'semesters'));
     }
 
     /**
@@ -115,7 +115,7 @@ class MateriController extends Controller
     {
         $matkuls = Matkul::all();
         $semesters = Semester::all();
-        return view('adminEdit', compact('materis', 'matkuls', 'semesters'));
+        return view('admin/adminEdit', compact('materis', 'matkuls', 'semesters'));
     }
 
     /**

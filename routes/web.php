@@ -16,23 +16,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('adminHome');
+    return view('admin/adminHome');
 });
 
 Route::resource('materi', MateriController::class)->except(['update']);
 
-Route::get('/adminHome', [MateriController::class, 'home'])->name('adminHome');
+Route::get('/admin/adminHome', [MateriController::class, 'home'])->name('adminHome');
 
-Route::get('/adminList', [MateriController::class, 'list'])->name('adminList');
+Route::get('/admin/adminList', [MateriController::class, 'list'])->name('adminList');
 
-Route::get('/adminView/{id}', [MateriController::class, 'course'])->name('course');
+Route::get('/admin/adminView/{id}', [MateriController::class, 'course'])->name('course');
 
-Route::get('/adminShow/{id}', [MateriController::class, 'show'])->name('show');
+Route::get('/admin/adminShow/{id}', [MateriController::class, 'show'])->name('show');
 
-Route::post('/materi/create', [MateriController::class, 'store'])->name('materi.create');
+Route::post('materi/create', [MateriController::class, 'store'])->name('materi.create');
 
-Route::get('/adminEdit/{materis}', [MateriController::class, 'edit'])->name('edit');
+Route::get('/admin/adminEdit/{materis}', [MateriController::class, 'edit'])->name('edit');
 
-Route::put('/adminEdit/{materis}', [MateriController::class, 'update'])->name('materi.update');
+Route::put('/admin/adminEdit/{materis}', [MateriController::class, 'update'])->name('materi.update');
 
-Route::delete('/destroy/{materis}', [MateriController::class, 'destroy'])->name('materi.destroy');
+Route::delete('/admin/destroy/{materis}', [MateriController::class, 'destroy'])->name('materi.destroy');

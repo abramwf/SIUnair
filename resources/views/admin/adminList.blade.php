@@ -64,7 +64,7 @@
                             <p>{{ $materi->created_at->format('d-m-Y') }} <span>{{ $materi->created_at->format('H:i:s') }}</span></p>
                         </div>
                         <div class="content">
-                            <img src="images/programming.jpg" alt="" class="bg">
+                            <img src="{{ asset('images/programming.jpg') }}" alt="" class="bg">
                             <div class="description">
                                 <p>Judul : {{ $materi->judul }}</p>
                                 <p>Mata kuliah : {{ $materi->matkul->matkul }}</p>
