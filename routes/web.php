@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MateriController;
+use App\Http\Controllers\UserController;
 use App\Models\Materi;
 use Illuminate\Support\Facades\Route;
 
@@ -36,3 +37,6 @@ Route::get('/admin/adminEdit/{materis}', [MateriController::class, 'edit'])->nam
 Route::put('/admin/adminEdit/{materis}', [MateriController::class, 'update'])->name('materi.update');
 
 Route::delete('/admin/destroy/{materis}', [MateriController::class, 'destroy'])->name('materi.destroy');
+
+
+Route::get('/user/userLanding', [UserController::class, 'landing'])->name('userLanding');

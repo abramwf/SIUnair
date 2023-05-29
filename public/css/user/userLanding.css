@@ -1,0 +1,120 @@
+.jumbotron {
+    background-image: url(/assets/img/jumbotron.png);
+    height: 606px;
+    gap: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+    margin-top: 50px;
+}
+
+.h1-jumbo, .h2-jumbo {
+    margin: 0 10px;
+}
+
+.h2-jumbo {
+    max-width: 1000px;
+    font-weight: 300;
+}
+
+.container {
+    margin: 60px auto;
+    max-width: 1200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.desc-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.desc-container-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    
+}
+
+.button.grey:hover {
+    box-shadow: 2px 2px 0px 1px rgba(0, 0, 0, 0.05);
+}
+
+.desc-container-item {
+    max-width: 354px;
+    height: 486px;
+    border: 10px solid #87BAD5;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 15px;
+}
+
+.grey-desc {
+    border: 10px solid #7A7E82;
+}
+
+.yellow-desc {
+    border: 10px solid #E6CD3A;
+}
+
+@media screen and (max-width:1120px) {
+    .desc-container-item {
+        width: 30vw;
+    }
+
+    .container {
+        margin: 60px 10px;
+    }
+}
+
+@media screen and (max-width:768px) {
+   .desc-container-list {
+        flex-direction: column;
+   }
+
+   .desc-container-item {
+        width: 50vw;
+   }
+   
+   h1.h1-jumbo, h2.h2-jumbo {
+        font-size: smaller;
+   }
+
+   .desc-container h2 {
+        font-size: 24px;
+   }
+   
+}
+
+@media screen and (max-width:512px) {
+    h1.h1-jumbo {
+         font-size: 36px;
+    }
+    
+    h2.h2-jumbo {
+        font-size: 24px;
+    }
+
+    .desc-container p {
+        font-size: 18px;
+    }
+
+    .desc-container-item {
+        width: 80vw;
+    }
+ }
