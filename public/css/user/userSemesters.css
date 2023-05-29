@@ -1,0 +1,128 @@
+.container {
+    margin: 100px 30px 30px;
+    padding: 0 70px;
+}
+
+.container .blue, .admin-time, .file, .container-content, .content {
+    display: flex;
+}
+
+.admin-time > *, .file > *, .description > * {
+    font-size: 14px;
+}
+
+.admin-time, .file, .action-buttons {
+    justify-content: space-between;
+}
+
+.container .button a, .container .blue  {
+    color: black;
+}
+
+.information {
+    margin-bottom: 30px;
+}
+
+.container .blue {
+    margin-bottom: 10px;
+    align-items: center;
+    gap: 7px;
+    justify-content: center;
+    background-color: #EAF8FF;
+}
+
+table {
+    width: 100%;
+}
+tr td, tr td a, tr td p {
+    font-size: large;
+    
+}
+
+tr td:nth-child(1) {
+    width: 20px;
+}
+
+tr td:nth-child(2) {
+    width: 400px;
+}
+
+tr td:nth-child(3) {
+    width: 25%;
+}
+
+tr td:nth-child(3), tr td:nth-child(4) {
+    text-align: end;
+}
+
+td {
+    vertical-align: text-top;
+    font-size: large;
+}
+
+tr td a {
+    color: black;
+}
+
+tr td a:hover {
+    text-decoration: underline;
+}
+
+.container-content {
+    width: 100%;
+    gap: 30px;
+}
+
+ol li a {
+    display: block;
+}
+
+.semester-container {
+    flex-grow: 3; 
+}
+
+.semester-list {
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 14px;
+}
+
+.semester-list:nth-child(odd) {
+    background-color: #E1EDF4;
+}
+
+.semester-list:nth-child(even) {
+    background-color: #F8F2CE;
+}
+
+@media screen and (max-width:1000px) {
+    tr td:nth-child(2) {
+        width: 40%;
+    }
+
+    tr td:nth-child(3) {
+        width: 25%;
+    }
+
+    .container {
+        margin: 100px 10px 30px;
+        padding: 0 10px;
+    }
+    
+}    
+
+@media screen and (max-width:512px) {
+    .uploaded-container {
+        max-width: calc(100% + 14vw);
+    }
+
+    td {
+        font-size: medium;
+        padding-right: 5px;
+    }
+
+    .semester-list {
+        padding: 5px;
+    }
+}    
+

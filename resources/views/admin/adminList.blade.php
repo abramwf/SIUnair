@@ -41,17 +41,17 @@
                 @foreach ($semesters as $semester)
                     <div class="semester-list">
                         <h2> {{ $semester->semester }} </h2>
-                        <table>
-                            <?php $count = 1 ?>
-                            @foreach($semester->matkul as $mk)
+                        <?php $count = 1 ?>
+                        @foreach($semester->matkul as $mk)
+                            <table>
                                 <tr>
                                     <td>{{ $count++ }}</td>
                                     <td><a href="{{ route('course', $mk->id) }}">{{ $mk->matkul }}</a></td>
                                     <td><p></p></td>
                                     <td><p></p></td>
                                 </tr>
-                            @endforeach
-                        </table>
+                            </table>
+                        @endforeach
                     </div>
                 @endforeach
             </div>

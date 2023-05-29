@@ -15,8 +15,8 @@
         <div class="nav-container">
             <div class="nav-list">
                 <div class="menu-container add-gap">
-                    <a href="/User/UserLanding/UserLanding.html" class="a-nav">Home</a>
-                    <a href="/User/UserMK/UserMK.html" class="a-nav">Semester</a>
+                    <a href="{{ route('userLanding') }}" class="a-nav">Home</a>
+                    <a href="{{ route('userSemesters') }}" class="a-nav">Semester</a>
                     <a href="#" class="a-nav">Tentang</a>
                 </div>
                 <div class="status-container add-gap stat-col">
@@ -71,7 +71,7 @@
             <div class="desc-container-item">
                 <img src="{{ asset('images/ph_student-bold.png') }}" alt="">
                 <p class="p-large">Terdapat 8 semester materi lengkap</p>
-                <a href="/User/UserSemester/UserSemester.html"><button class="button grey"><i class="fa-solid fa-arrow-right"></i></button></a>
+                <a href="{{ route('userSemesters') }}"><button class="button grey"><i class="fa-solid fa-arrow-right"></i></button></a>
             </div>
         </div>
     </div>

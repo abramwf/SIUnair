@@ -40,3 +40,5 @@ Route::delete('/admin/destroy/{materis}', [MateriController::class, 'destroy'])-
 
 
 Route::get('/user/userLanding', [UserController::class, 'landing'])->name('userLanding');
+
+Route::get('/user/userSemesters', [UserController::class, 'semester'])->name('userSemesters');
