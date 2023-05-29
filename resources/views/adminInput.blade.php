@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="img-container">
-            <img src="/assets/img/logo.png" alt="">
+            <img src="{{ asset('images/logo.png') }}" alt="">
         </div>
     </nav>
     <div class="head">
