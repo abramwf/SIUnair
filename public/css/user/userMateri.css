@@ -1,0 +1,191 @@
+.container {
+    margin: 100px 49px;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+}
+
+.content-container h2 {
+    margin: 30px 0 35px;
+}
+
+.action-container, .search, button, .admin-date, .item-content-container, .item-content, .action-buttons, .file {
+    display: flex;
+}
+
+.admin-date, .item-content-container, .file, .action-buttons, .action-container {
+    justify-content: space-between;
+}
+
+.action-container {
+    gap: 10px;
+}
+
+.search {
+    align-self: center;
+    gap: 15px;
+}
+
+button {
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 3px;
+}
+
+.search input {
+    max-width: 353px;
+    border-radius: 10px;
+}
+
+.search input, .action-container button {
+    background-color: #EBEBEB;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.search button {
+    background-color: #EBEBEB;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    max-width: 80px;
+}
+
+button.blue {
+    background-color: #EAF8FF;
+}
+
+.two-content-container {
+    display: flex;
+    gap: 20px;
+}
+
+.list-container {
+    width: 100%;
+}
+
+.item-container {
+    margin-bottom: 30px;
+    padding: 15px 25px;
+}
+
+.item-container:nth-child(odd) {
+    border: 5px solid #C2DCE9;
+}
+
+.item-container:nth-child(even) {
+    border: 5px solid #F2E69C;
+}
+
+.item-content-container {
+    width: 100%;
+    gap: 20px;
+}
+
+.item-content {
+    flex-direction: column;
+    max-width: 300px;
+}
+
+.item-content img {
+    object-fit: cover;
+    max-width: 245px;
+    height: 140px;
+    border-radius: 10px;
+}
+
+.item-content p span {
+    font-size: large;
+    font-weight: 500;
+}
+
+.file {
+    padding: 0 10px;
+    border-radius: 10px;
+    background-color: #EBEBEB;
+    align-items: center;
+}
+
+.file img {
+    width: 19px;
+    height: 16px;
+}
+
+.action-buttons {
+    gap: 3px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.action-buttons .button {
+    height: 35px;
+    max-width: 90px;
+}
+
+.recomen-container {
+    border-radius: 35px;
+    padding: 20px;
+    height: max-content;
+    max-width: 275px;
+    box-shadow: 2px 2px 6px 10px rgba(0, 0, 0, 0.05);
+}
+
+.recomen-container p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.recomen-container ul li {
+    list-style: none;
+}
+
+.recomen-container ul li a {
+    color: black;
+}
+
+.recomen-container ul li a:hover {
+    text-decoration: underline;
+}
+
+.navigator, .pagination {
+    color: black;
+    margin: 0 auto 40px;
+    text-align: center;
+    font-size: larger;
+    display: flex;
+    top: 100px;
+    list-style: none;
+    position: relative;
+    bottom: 20px;
+    top: 100px;
+
+}
+
+.navigator span {
+    margin: 0 10px;
+}
+
+.navigator a {
+    color: black;
+}
+
+.grey a {
+    color: black;
+}
+
+@media screen and (max-width:1000px) {
+    .container {
+        margin-right: 10px;
+    }
+    .two-content-container {
+        flex-direction: column;
+    }
+} 
+
+@media screen and (max-width:432px) {
+    .search input {
+        width: 100%;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        align-items: end;
+    }
+} 

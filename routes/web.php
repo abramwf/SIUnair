@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin/adminHome');
+    return view('user/UserLanding');
 });
 
 Route::resource('materi', MateriController::class)->except(['update']);
@@ -42,3 +42,7 @@ Route::delete('/admin/destroy/{materis}', [MateriController::class, 'destroy'])-
 Route::get('/user/userLanding', [UserController::class, 'landing'])->name('userLanding');
 
 Route::get('/user/userSemesters', [UserController::class, 'semester'])->name('userSemesters');
+
+Route::get('/user/userMateri/{id}', [UserController::class, 'materi'])->name('userMateri');
+
+Route::get('/user/userView/{id}', [UserController::class, 'view'])->name('userView');

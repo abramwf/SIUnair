@@ -11,7 +11,7 @@
     <title>Admin Edit</title>
 </head>
 <body>
-    <nav class="nav">
+    <nav class="navbars">
         <div class="nav-container">
             <div class="nav-list">
                 <a href="{{ route('adminHome') }}" class="a-nav">Home</a>

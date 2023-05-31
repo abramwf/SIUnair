@@ -11,7 +11,7 @@
     <title>User Landing</title>
 </head>
 <body>
-    <nav class="nav nav-user">
+    <nav class="navbars nav-user">
         <div class="nav-container">
             <div class="nav-list">
                 <div class="menu-container add-gap">
@@ -55,7 +55,7 @@
                             <table>
                                 <tr>
                                     <td>{{ $count++ }}</td>
-                                    <td><a href="">{{ $mk->matkul }}</a></td>
+                                    <td><a href="{{ route('userMateri', $mk->id) }}">{{ $mk->matkul }}</a></td>
                                     <td><p>2SKS</p></td>
                                     <td><p>Wajib</p></td>
                                 </tr>

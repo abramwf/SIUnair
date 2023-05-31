@@ -11,7 +11,7 @@
     <title>Admin List Page Item</title>
 </head>
 <body>
-    <nav class="nav">
+    <nav class="navbars">
         <div class="nav-container">
             <div class="nav-list">
                 <a href="{{ route('adminHome') }}" class="a-nav">Home</a>
@@ -46,7 +46,7 @@
         <div class="content-container">
             <h2>{{ $matkuls->matkul }}</h2>
             <div class="list-container">
-                @foreach ($materis as $materi)
+                @foreach ($materi_paginates as $materi)
                     <div class="item-container">
                         <div class="admin-date">
                             <p>Admin : Valasinov Kormeno</p>
@@ -102,13 +102,8 @@
             </div>
         </div>        
     </div>
-    <div class="navigator">
-        <i class="fa-solid fa-chevron-left"></i>
-        <span><a href="">1</a></span>
-        <span><a href="">2</a></span>
-        <span><a href="">3</a></span>
-        <span><a href="">4</a></span>
-        <i class="fa-solid fa-chevron-right"></i>
+    <div class="pagination">
+        {{ $materi_paginates->links('pagination::bootstrap-4') }}
     </div>
     <script src="{{ asset('js/nav.js') }}"></script>
 </body>

@@ -5,19 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('css/admin/adminShow.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/user/userView.css') }}">
     <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
     <link rel="stylesheet" href="{{ asset('css/env.css') }}">
-    <title>Admin View Page</title>
+    <title>User View</title>
 </head>
 <body>
-    <nav class="navbars">
+    <nav class="navbars nav-user">
         <div class="nav-container">
             <div class="nav-list">
-                <a href="{{ route('adminHome') }}" class="a-nav">Home</a>
-                <div class="status-container">
-                    <a href=""><img src="/assets/icon/admin.png" alt=""></a>
-                    <a href="/Admin/AdminLogin/AdminLogin.html" class="a-nav">log out</a>
+                <div class="menu-container add-gap">
+                    <a href="{{ route('userLanding') }}" class="a-nav">Home</a>
+                    <a href="{{ route('userSemesters') }}" class="a-nav">Semester</a>
+                    <a href="#" class="a-nav">Tentang</a>
+                </div>
+                <div class="status-container add-gap stat-col">
+                    <a href="/User/UserSignIn/UserSignIn.html" class="a-nav">Sign In</a>
+                    <a href="/User/UserLogin/UserLogin.html" class="a-nav">Login</a>
                 </div>
             </div>
             <div class="burger">
@@ -25,8 +29,8 @@
                 <div class="line2"></div>
                 <div class="line3"></div>
             </div>
-            <div class="status-container none">
-                <a href=""><img src="/assets/icon/admin.png" alt=""></a>
+            <div class="status-container none stat-col">
+                <a href="/" class="a-nav">Sign In</a>
                 <a href="" class="a-nav">log out</a>
             </div>
         </div>
@@ -35,12 +39,12 @@
         </div>
     </nav>
     <div class="container">
-        <button class="button"><a style="color: black" href="{{ route('adminList') }}"><i class="fa-solid fa-chevron-left"></i> Ke List</a> </button>
+        <button class="button"><i class="fa-solid fa-chevron-left"></i> <a style="color:black;" href="{{ route('userMateri', $materis->matkul_id) }}">Ke List Materi</a></button>
         <div class="content-container">
             <div class="view-container">
                 <div class="view-item">
                     <h2>{{ $materis->judul }}</h2>
-                    <p>diopload oleh Valasinov Kormeo pada 12-06-2022</p>
+                    <p>diopload pada {{ $materis->created_at->format('d-m-Y') }}</p>
                 </div>
                 <div class="view-item">
                     <p>Matakuliah : {{ $materis->matkul->matkul }}</p>
@@ -51,11 +55,9 @@
                 <div class="view-item">
                     <p>Deskripsi :</p>
                     <p>{{ $materis->deskripsi }}</p>
-                    {{-- <p>jadi for loop adalah pengulangan bla bla bla hi hi  jadi for loop adalah pengulangan or loop adalah pengulangan</p>
-                    <p>jadi for loop adalah pengulangan bla bla bla hi hi  jadi for loop adalah pengulangan or loop adalah pengulangan</p> --}}
                 </div>
                 <div class="view-item">
-                    <p>Link File :</p>
+                    <p>File Download :</p>
                     <p>{{ $materis->file }}</p>
                     {{-- <div class="file-container">
                         <div class="file">
@@ -73,20 +75,27 @@
                     </div> --}}
                 </div>
             </div>
-            <div class="action-buttons">
-                <form action="{{ route('edit', $materis) }}" method="GET">
-                    @method('update')
-                    @csrf
-                    <button class="button green">Edit <img src="/assets/icon/material-symbols_edit-outline-rounded.png" alt=""></button>
-                </form>
-                <form action="{{ route('materi.destroy', $materis) }}" method="post">
-                    @method('delete')
-                    @csrf
-                    <button class="button red">Delete <img src="/assets/icon/mdi_trash-can-outline.png" alt=""></button>
-                </form>
+            <div class="other">
+                <p>Lihat Materi Lain 
+                    Tentang Mata kuliah ini</p>
+                <ul>
+                    @foreach ($materi_matkuls as $materi)
+                        <li><a href="{{ route('userView', $materi->id) }}">{{ $materi->judul }}</a></li>
+                    @endforeach
+                </ul>
             </div>
         </div>
     </div>
-    <script src="{{ asset('js/nav.js') }}"></script>
+    <footer>
+        <div class="img-div">
+            <img src="/assets/img/logo.png" alt="">
+        </div>
+        <div class="about">
+            <h3>Profil Pengembang</h3>
+            <a href="a-nav" class="a-nav">Nadita</a>
+            <a href="a-nav" class="a-nav">Abram</a>
+        </div>
+    </footer>
+    <script src="/assets/js/nav.js"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@
     <title>User Landing</title>
 </head>
 <body>
-    <nav class="nav nav-user">
+    <nav class="navbars nav-user">
         <div class="nav-container">
             <div class="nav-list">
                 <div class="menu-container add-gap">

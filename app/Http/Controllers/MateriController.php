@@ -40,15 +40,16 @@ class MateriController extends Controller
         $matkuls = Matkul::find($id);
         $materis = Materi::where('matkul_id', $id)->get();
         $semesters = Semester::all();
+        $materi_paginates = Materi::where('matkul_id', $id)->paginate(2);
 
-        $materis->transform(function ($item) {
+        $materi_paginates->transform(function ($item) {
             $item->ppt = $item->ppt == 1 ? 'PPT' : '';
             $item->contoh_soal = $item->contoh_soal == 1 ? 'Contoh Soal' : '';
             $item->ebook = $item->ebook == 1 ? 'Ebook' : '';
             return $item;
         });
 
-        return view('admin/adminView', compact('materis', 'matkuls', 'semesters'));
+        return view('admin/adminView', compact('materis', 'matkuls', 'semesters', 'materi_paginates'));
     }
 
     /**
