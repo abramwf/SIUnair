@@ -36,12 +36,12 @@
     </nav>
     <div class="container">
         <div class="action-container">
-            <button class="button"><a style="color: black;" href="{{ route('adminList') }}">Ke List <i class="fa-sharp fa-regular fa-plus"></i></a> </button>
-            <button class="button blue"><a style="color: black;" href="{{ route('materi.create') }}">Input baru<i class="fa-sharp fa-regular fa-plus"></i></a> </button>
-            <div class="search">
-                <input type="text">
+            <button class="button"><a href="{{ route('adminList') }}">Ke List <i class="fa-sharp fa-regular fa-plus"></i></a> </button>
+            <button class="button blue"><a href="{{ route('materi.create') }}">Input baru<i class="fa-sharp fa-regular fa-plus"></i></a> </button>
+            <form action="{{ route('course', $id) }}" class="search" method="GET">
+                <input type="search" name="search" value="{{ request('search') }}" placeholder="cari judul atau kategori">
                 <button class="button">Cari <i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
+            </form>
         </div>
         <div class="content-container">
             <h2>{{ $matkuls->matkul }}</h2>
@@ -105,6 +105,7 @@
     <div class="pagination">
         {{ $materi_paginates->links('pagination::bootstrap-4') }}
     </div>
+    <script src="{{ asset('js/search.js') }}"></script>
     <script src="{{ asset('js/nav.js') }}"></script>
 </body>
 </html>

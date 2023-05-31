@@ -28,6 +28,8 @@ Route::get('/admin/adminList', [MateriController::class, 'list'])->name('adminLi
 
 Route::get('/admin/adminView/{id}', [MateriController::class, 'course'])->name('course');
 
+// Route::get('/admin/search', [MateriController::class, 'search'])->name('search');
+
 Route::get('/admin/adminShow/{id}', [MateriController::class, 'show'])->name('show');
 
 Route::post('materi/create', [MateriController::class, 'store'])->name('materi.create');
@@ -37,6 +39,8 @@ Route::get('/admin/adminEdit/{materis}', [MateriController::class, 'edit'])->nam
 Route::put('/admin/adminEdit/{materis}', [MateriController::class, 'update'])->name('materi.update');
 
 Route::delete('/admin/destroy/{materis}', [MateriController::class, 'destroy'])->name('materi.destroy');
+
+Route::get('/admin/adminView', [MateriController::class, 'search'])->name('searchMateri');
 
 
 Route::get('/user/userLanding', [UserController::class, 'landing'])->name('userLanding');

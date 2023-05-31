@@ -9,6 +9,7 @@ use App\Models\Matkul;
 use App\Models\Semester;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\Request;
 
 class MateriController extends Controller
 {
@@ -40,7 +41,29 @@ class MateriController extends Controller
         $matkuls = Matkul::find($id);
         $materis = Materi::where('matkul_id', $id)->get();
         $semesters = Semester::all();
-        $materi_paginates = Materi::where('matkul_id', $id)->paginate(2);
+        $search = request('search');
+        $query = Materi::where('matkul_id', $id);
+
+        if ($search) {
+            $query->where(function ($query) use ($search) {
+                $query->where(function ($query) use ($search) {
+                    $query->where('judul', 'LIKE', '%' . $search . '%')
+                        ->orWhere('deskripsi', 'LIKE', '%' . $search . '%')
+                        ->orWhere('file', 'LIKE', '%' . $search . '%');
+                })
+                ->orWhere(function ($query) use ($search) {
+                    if (strtolower($search) == 'ppt') {
+                        $query->where('ppt', 1);
+                    } elseif (strtolower($search) == 'ebook') {
+                        $query->where('ebook', 1);
+                    } elseif (strtolower($search) == 'contoh soal' || strtolower($search) == 'contoh' || strtolower($search) == 'soal') {
+                        $query->where('contoh_soal', 1);
+                    }
+                });
+            });
+        }
+
+        $materi_paginates = $query->paginate(5);
 
         $materi_paginates->transform(function ($item) {
             $item->ppt = $item->ppt == 1 ? 'PPT' : '';
@@ -49,7 +72,7 @@ class MateriController extends Controller
             return $item;
         });
 
-        return view('admin/adminView', compact('materis', 'matkuls', 'semesters', 'materi_paginates'));
+        return view('admin/adminView', compact('id', 'materis', 'matkuls', 'semesters', 'materi_paginates'));
     }
 
     /**

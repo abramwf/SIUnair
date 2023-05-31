@@ -26,7 +26,29 @@ class UserController extends Controller
         $materis = Materi::where('matkul_id', $id)->get();
         $semesters = Semester::all();
         $matkul_semesters = Matkul::where('semester_id', $matkuls->semester_id)->whereNotIn('id', [$id])->get();
-        $materi_paginates = Materi::where('matkul_id', $id)->paginate(2);
+        $search = request('search');
+        $query = Materi::where('matkul_id', $id);
+
+        if ($search) {
+            $query->where(function ($query) use ($search) {
+                $query->where(function ($query) use ($search) {
+                    $query->where('judul', 'LIKE', '%' . $search . '%')
+                        ->orWhere('deskripsi', 'LIKE', '%' . $search . '%')
+                        ->orWhere('file', 'LIKE', '%' . $search . '%');
+                })
+                ->orWhere(function ($query) use ($search) {
+                    if (strtolower($search) == 'ppt') {
+                        $query->where('ppt', 1);
+                    } elseif (strtolower($search) == 'ebook') {
+                        $query->where('ebook', 1);
+                    } elseif (strtolower($search) == 'contoh soal' || strtolower($search) == 'contoh' || strtolower($search) == 'soal') {
+                        $query->where('contoh_soal', 1);
+                    }
+                });
+            });
+        }
+
+        $materi_paginates = $query->paginate(5);
 
         $materi_paginates->transform(function ($item) {
             $item->ppt = $item->ppt == 1 ? 'PPT' : '';
@@ -35,7 +57,7 @@ class UserController extends Controller
             return $item;
         });
 
-        return view('user/userMateri', compact('materis', 'matkuls', 'semesters', 'matkul_semesters', 'materi_paginates'));
+        return view('user/userMateri', compact('id', 'materis', 'matkuls', 'semesters', 'matkul_semesters', 'materi_paginates'));
     }
 
     public function view($id) {
@@ -43,13 +65,6 @@ class UserController extends Controller
         $matkuls = Matkul::all();
         $semesters = Semester::all();
         $materi_matkuls = Materi::where('matkul_id', $materis->matkul_id)->whereNotIn('id', [$id])->get();
-
-        // $materis->transform(function ($item) {
-        //     $item->ppt = $item->ppt == 1 ? 'PPT' : '';
-        //     $item->contoh_soal = $item->contoh_soal == 1 ? 'Contoh Soal' : '';
-        //     $item->ebook = $item->ebook == 1 ? 'Ebook' : '';
-        //     return $item;
-        // });
 
         $materis = Materi::find($id);
 

@@ -39,10 +39,10 @@
         </div>
     </div>
     <div class="container">
-        <div class="search">
-            <input type="text">
+        <form action="{{ route('userMateri', $id) }}" class="search" method="GET">
+            <input type="search" name="search" value="{{ request('search') }}" placeholder="cari judul atau kategori">
             <button class="button">Cari <i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
+        </form>
         <div class="content-container">
             <h2>{{ $matkuls->matkul }}</h2>
             <div class="two-content-container">
@@ -116,6 +116,7 @@
             <a href="a-nav" class="a-nav">Abram</a>
         </div>
     </footer>
-    <script src="/assets/js/nav.js"></script>
+    <script src="{{ asset('js/search.js') }}"></script>
+    <script src="{{ asset('js/nav.js') }}"></script>
 </body>
 </html>

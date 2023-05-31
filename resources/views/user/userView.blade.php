@@ -39,7 +39,7 @@
         </div>
     </nav>
     <div class="container">
-        <button class="button"><i class="fa-solid fa-chevron-left"></i> <a style="color:black;" href="{{ route('userMateri', $materis->matkul_id) }}">Ke List Materi</a></button>
+        <button class="button"><i class="fa-solid fa-chevron-left"></i> <a href="{{ route('userMateri', $materis->matkul_id) }}">Ke List</a></button>
         <div class="content-container">
             <div class="view-container">
                 <div class="view-item">
@@ -49,7 +49,7 @@
                 <div class="view-item">
                     <p>Matakuliah : {{ $materis->matkul->matkul }}</p>
                     <p>Semester : {{ $materis->semester_id }}</p>
-                    <p>Kategori : {{ $materis->ebook = $materis->ebook == 1 ? 'Ebook' : '' . $materis->ppt = $materis->ppt == 1 ? 'PPT' : '' . $materis->contoh_soal = $materis->contoh_soal == 1 ? 'PPT' : ''}}</p>
+                    <p>Kategori : {{ $materis->ebook = $materis->ebook == 1 ? 'Ebook' : ''}} {{ $materis->ppt = $materis->ppt == 1 ? 'PPT' : '' }} {{ $materis->contoh_soal = $materis->contoh_soal == 1 ? 'Contoh soal' : '' }}</p>
                 </div>
                 <img class="img" src="{{ asset('images/programming.jpg') }}" alt="">
                 <div class="view-item">
