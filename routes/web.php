@@ -28,8 +28,6 @@ Route::get('/admin/adminList', [MateriController::class, 'list'])->name('adminLi
 
 Route::get('/admin/adminView/{id}', [MateriController::class, 'course'])->name('course');
 
-// Route::get('/admin/search', [MateriController::class, 'search'])->name('search');
-
 Route::get('/admin/adminShow/{id}', [MateriController::class, 'show'])->name('show');
 
 Route::post('materi/create', [MateriController::class, 'store'])->name('materi.create');

@@ -56,8 +56,8 @@
                                 <tr>
                                     <td>{{ $count++ }}</td>
                                     <td><a href="{{ route('userMateri', $mk->id) }}">{{ $mk->matkul }}</a></td>
-                                    <td><p>2SKS</p></td>
-                                    <td><p>Wajib</p></td>
+                                    <td><p>{{ $mk->sks }} SKS</p></td>
+                                    <td><p>{{ $mk->kategori = $mk->kategori == 1 ? "Wajib" : "Pilihan" }}</p></td>
                                 </tr>
                             </table>
                         @endforeach

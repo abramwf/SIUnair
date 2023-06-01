@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('matkuls', function (Blueprint $table) {
             $table->id();
             $table->string("matkul");
+            $table->integer("sks");
+            $table->boolean("kategori");
             $table->foreignId('semester_id')->constrained('semesters');
             $table->timestamps();
         });
