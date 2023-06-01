@@ -123,10 +123,6 @@
         <div class="form-input">
             <label for="file">Link Drive</label>
             <input type="text" name="file">
-            {{-- <input type="file" id="file" multiple>
-            <div class="file-container">
-
-            </div> --}}
         </div>
         <button type="submit" class="button a-button">
            Submit

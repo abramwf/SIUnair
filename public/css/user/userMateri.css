@@ -144,28 +144,6 @@ button.blue {
     text-decoration: underline;
 }
 
-.navigator, .pagination {
-    color: black;
-    margin: 0 auto 40px;
-    text-align: center;
-    font-size: larger;
-    display: flex;
-    top: 100px;
-    list-style: none;
-    position: relative;
-    bottom: 20px;
-    top: 100px;
-
-}
-
-.navigator span {
-    margin: 0 10px;
-}
-
-.navigator a {
-    color: black;
-}
-
 .grey a {
     color: black;
 }
@@ -178,6 +156,22 @@ button.blue {
         flex-direction: column;
     }
 } 
+
+@media screen and (max-width:952px) {
+    .item-content-container {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+} 
+
+@media screen and (max-width:600px) {
+    .item-content-container {
+        justify-content: start;
+        
+    }
+
+}
 
 @media screen and (max-width:432px) {
     .search input {

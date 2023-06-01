@@ -58,21 +58,7 @@
                 </div>
                 <div class="view-item">
                     <p>File Download :</p>
-                    <p>{{ $materis->file }}</p>
-                    {{-- <div class="file-container">
-                        <div class="file">
-                            <p>For loop.word</p>
-                            <img src="/assets/icon/bi_file-earmark-text.png" alt="">
-                        </div>
-                        <div class="file">
-                            <p>For loop.word</p>
-                            <img src="/assets/icon/bi_file-earmark-text.png" alt="">
-                        </div>
-                        <div class="file">
-                            <p>For loop.word</p>
-                            <img src="/assets/icon/bi_file-earmark-text.png" alt="">
-                        </div>
-                    </div> --}}
+                    <a target="blank" href="{{ $materis->file }}">{{ $materis->file }}</a>
                 </div>
             </div>
             <div class="other">

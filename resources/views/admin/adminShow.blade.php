@@ -51,26 +51,10 @@
                 <div class="view-item">
                     <p>Deskripsi :</p>
                     <p>{{ $materis->deskripsi }}</p>
-                    {{-- <p>jadi for loop adalah pengulangan bla bla bla hi hi  jadi for loop adalah pengulangan or loop adalah pengulangan</p>
-                    <p>jadi for loop adalah pengulangan bla bla bla hi hi  jadi for loop adalah pengulangan or loop adalah pengulangan</p> --}}
                 </div>
                 <div class="view-item">
                     <p>Link File :</p>
-                    <p>{{ $materis->file }}</p>
-                    {{-- <div class="file-container">
-                        <div class="file">
-                            <p>For loop.word</p>
-                            <img src="/assets/icon/bi_file-earmark-text.png" alt="">
-                        </div>
-                        <div class="file">
-                            <p>For loop.word</p>
-                            <img src="/assets/icon/bi_file-earmark-text.png" alt="">
-                        </div>
-                        <div class="file">
-                            <p>For loop.word</p>
-                            <img src="/assets/icon/bi_file-earmark-text.png" alt="">
-                        </div>
-                    </div> --}}
+                    <a target="blank" href="{{ $materis->file }}">{{ $materis->file }}</a>
                 </div>
             </div>
             <div class="action-buttons">

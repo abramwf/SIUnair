@@ -68,21 +68,7 @@
                                     <p><span>Deskripsi</span> :</p>
                                     <p>{{ Str::limit($materi->deskripsi, 120, '...') }}</p>
                                     <p><span>File</span> : </p>
-                                    <p style="word-wrap: break-word;">{{ $materi->file }}</p>
-                                    {{-- <div class="file-container">
-                                        <div class="file">
-                                            <p>For loop.pdf</p>
-                                            <img src="/assets/icon/bi_file-earmark-text.png" alt="">
-                                        </div>
-                                        <div class="file">
-                                            <p>For loop.ppt</p>
-                                            <img src="/assets/icon/bi_file-earmark-text.png" alt="">
-                                        </div>
-                                        <div class="file">
-                                            <p>For loop.word</p>
-                                            <img src="/assets/icon/bi_file-earmark-text.png" alt="">
-                                        </div>
-                                    </div> --}}
+                                    <a target="blank" href="{{ $materi->file }}">{{ $materi->file }}</a>
                                 </div>
                             </div>
                             <div class="action-buttons">

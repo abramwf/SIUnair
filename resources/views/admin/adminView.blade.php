@@ -54,7 +54,6 @@
                         </div>
                         <div class="item-content-container">
                             <div class="item-content">
-                                {{-- <p><span>Foto Profil</span></p> --}}
                                 <img src="{{ asset('images/programming.jpg') }}" alt="">
                             </div>
                             <div class="item-content">
@@ -67,21 +66,7 @@
                                 <p><span>Deskripsi</span> :</p>
                                 {{ Str::limit($materi->deskripsi, 120, '...') }}
                                 <p><span>File</span> : </p>
-                                <p style="word-wrap: break-word;">{{ $materi->file }}</p>
-                                {{-- <div class="file-container">
-                                    <div class="file">
-                                        <p>For loop.pdf</p>
-                                        <img src="/assets/icon/bi_file-earmark-text.png" alt="">
-                                    </div>
-                                    <div class="file">
-                                        <p>For loop.ppt</p>
-                                        <img src="/assets/icon/bi_file-earmark-text.png" alt="">
-                                    </div>
-                                    <div class="file">
-                                        <p>For loop.word</p>
-                                        <img src="/assets/icon/bi_file-earmark-text.png" alt="">
-                                    </div>
-                                </div> --}}
+                                <a target="blank" href="{{ $materi->file }}">{{ $materi->file }}</a>
                             </div>
                         </div>
                         <div class="action-buttons">
