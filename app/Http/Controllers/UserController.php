@@ -13,6 +13,10 @@ class UserController extends Controller
         return view('user/userLanding');
     }
 
+    public function about() {
+        return view('user/about');
+    }
+
     public function semester() {
         $matkuls = Matkul::all();
         $semesters = Semester::all();

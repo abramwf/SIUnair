@@ -17,7 +17,7 @@
                 <div class="menu-container add-gap">
                     <a href="{{ route('userLanding') }}" class="a-nav">Home</a>
                     <a href="{{ route('userSemesters') }}" class="a-nav">Semester</a>
-                    <a href="#" class="a-nav">Tentang</a>
+                    <a href="{{ route('about') }}" class="a-nav">Tentang</a>
                 </div>
                 <div class="status-container add-gap stat-col">
                     <a href="/User/UserSignIn/UserSignIn.html" class="a-nav">Sign In</a>
@@ -97,9 +97,9 @@
             <img src="{{ asset('images/logo.png') }}" alt="">
         </div>
         <div class="about">
-            <h3>Profil Pengembang</h3>
-            <a href="a-nav" class="a-nav">Nadita</a>
-            <a href="a-nav" class="a-nav">Abram</a>
+            <h3>Kontak kami</h3>
+            <p class="a-nav">naditafebianti14@gmail.com</p>
+            <p class="a-nav">abramwidi47@gmail.com</p>
         </div>
     </footer>
     <script src="{{ asset('js/search.js') }}"></script>

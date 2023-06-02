@@ -38,10 +38,10 @@ Route::put('/admin/adminEdit/{materis}', [MateriController::class, 'update'])->n
 
 Route::delete('/admin/destroy/{materis}', [MateriController::class, 'destroy'])->name('materi.destroy');
 
-Route::get('/admin/adminView', [MateriController::class, 'search'])->name('searchMateri');
-
 
 Route::get('/user/userLanding', [UserController::class, 'landing'])->name('userLanding');
+
+Route::get('/user/about', [UserController::class, 'about'])->name('about');
 
 Route::get('/user/userSemesters', [UserController::class, 'semester'])->name('userSemesters');
 
