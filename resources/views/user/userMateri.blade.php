@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/user/userMateri.css') }}">
     <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
     <link rel="stylesheet" href="{{ asset('css/env.css') }}">
-    <title>Admin List Page Item</title>
+    <title>User Materi</title>
 </head>
 <body>
     <div class="navbars nav-user">

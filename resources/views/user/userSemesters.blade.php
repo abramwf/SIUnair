@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/user/userSemesters.css') }}">
     <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
     <link rel="stylesheet" href="{{ asset('css/env.css') }}">
-    <title>User Landing</title>
+    <title>User Semester</title>
 </head>
 <body>
     <nav class="navbars nav-user">

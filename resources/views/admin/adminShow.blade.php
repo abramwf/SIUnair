@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/admin/adminShow.css') }}">
     <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
     <link rel="stylesheet" href="{{ asset('css/env.css') }}">
-    <title>Admin View Page</title>
+    <title>Admin Show</title>
 </head>
 <body>
     <nav class="navbars">
