@@ -17,7 +17,7 @@
                 <a href="{{ route('adminHome') }}" class="a-nav">Home</a>
                 <div class="status-container">
                     <a href=""><img src="/assets/icon/admin.png" alt=""></a>
-                    <a href="/Admin/AdminLogin/AdminLogin.html" class="a-nav">log out</a>
+                    <a href="{{ route('logout') }}" class="a-nav">log out</a>
                 </div>
             </div>
             <div class="burger">
@@ -27,7 +27,7 @@
             </div>
             <div class="status-container none">
                 <a href=""><img src="/assets/icon/admin.png" alt=""></a>
-                <a href="" class="a-nav">log out</a>
+                <a href="{{ route('logout') }}" class="a-nav">log out</a>
             </div>
         </div>
         <div class="img-container">
