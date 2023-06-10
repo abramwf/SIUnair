@@ -20,8 +20,8 @@
                     <a href="{{ route('about') }}" class="a-nav">Tentang</a>
                 </div>
                 <div class="status-container add-gap stat-col">
-                    <a href="/User/UserSignIn/UserSignIn.html" class="a-nav">Sign In</a>
-                    <a href="/User/UserLogin/UserLogin.html" class="a-nav">Login</a>
+                    {{-- <a href="/User/UserSignIn/UserSignIn.html" class="a-nav">Sign In</a>
+                    <a href="/User/UserLogin/UserLogin.html" class="a-nav">Login</a> --}}
                 </div>
             </div>
             <div class="burger">
@@ -30,8 +30,8 @@
                 <div class="line3"></div>
             </div>
             <div class="status-container none stat-col">
-                <a href="/" class="a-nav">Sign In</a>
-                <a href="" class="a-nav">log out</a>
+                {{-- <a href="/" class="a-nav">Sign In</a>
+                <a href="" class="a-nav">log out</a> --}}
             </div>
         </div>
         <div class="img-container">
