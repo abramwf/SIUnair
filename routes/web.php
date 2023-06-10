@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin/adminHome');
+    return view('admin/adminLogin');
 });
 
 Route::get('/admin/adminLogin', [LoginController::class, 'index'])->name('adminLogin');

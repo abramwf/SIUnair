@@ -28,4 +28,5 @@ class Materi extends Model
     public function matkul() {
         return $this->belongsTo(Matkul::class);
     }
+
 }

@@ -7,6 +7,7 @@ use App\Http\Requests\StoreMateriRequest;
 use App\Http\Requests\UpdateMateriRequest;
 use App\Models\Matkul;
 use App\Models\Semester;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,13 +19,15 @@ class MateriController extends Controller
      */
 
     public function home() {
-        return view('admin/adminHome');
+        $admin = Auth::user();
+        return view('admin/adminHome', compact('admin'));
     }
 
     public function list() {
         $materis = Materi::latest()->take(3)->get();;
         $matkuls = Matkul::all();
         $semesters = Semester::all();
+        $admin = Auth::user();
 
         $materis->transform(function ($item) {
             $item->ppt = $item->ppt == 1 ? 'PPT' : '';
@@ -33,7 +36,7 @@ class MateriController extends Controller
             return $item;
         });
 
-        return view('admin/adminList', compact('materis', 'matkuls', 'semesters'));
+        return view('admin/adminList', compact('materis', 'matkuls', 'semesters', 'admin'));
     }
 
     public function course($id)
@@ -43,6 +46,7 @@ class MateriController extends Controller
         $semesters = Semester::all();
         $search = request('search');
         $query = Materi::where('matkul_id', $id);
+        $admin = Auth::user();
 
         if ($search) {
             $query->where(function ($query) use ($search) {
@@ -72,7 +76,7 @@ class MateriController extends Controller
             return $item;
         });
 
-        return view('admin/adminView', compact('id', 'materis', 'matkuls', 'semesters', 'materi_paginates'));
+        return view('admin/adminView', compact('id', 'materis', 'matkuls', 'semesters', 'materi_paginates', 'admin'));
     }
 
     /**
@@ -82,7 +86,8 @@ class MateriController extends Controller
     {
         $semesters = Semester::all();
         $matkuls = Matkul::all();
-        return view('admin/adminInput', compact('semesters', 'matkuls'));
+        $admin = Auth::user();
+        return view('admin/adminInput', compact('semesters', 'matkuls', 'admin'));
     }
 
     /**
@@ -119,6 +124,7 @@ class MateriController extends Controller
         $materis = Materi::all();
         $matkuls = Matkul::all();
         $semesters = Semester::all();
+        $admin = Auth::user();
 
         $materis->transform(function ($item) {
             $item->ppt = $item->ppt == 1 ? 'PPT' : '';
@@ -129,7 +135,7 @@ class MateriController extends Controller
 
         $materis = Materi::find($id);
 
-        return view('admin/adminShow', compact('materis', 'matkuls', 'semesters'));
+        return view('admin/adminShow', compact('materis', 'matkuls', 'semesters', 'admin'));
     }
 
     /**
@@ -139,7 +145,8 @@ class MateriController extends Controller
     {
         $matkuls = Matkul::all();
         $semesters = Semester::all();
-        return view('admin/adminEdit', compact('materis', 'matkuls', 'semesters'));
+        $admin = Auth::user();
+        return view('admin/adminEdit', compact('materis', 'matkuls', 'semesters', 'admin'));
     }
 
     /**

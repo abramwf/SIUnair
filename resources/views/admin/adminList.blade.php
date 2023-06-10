@@ -16,8 +16,14 @@
             <div class="nav-list">
                 <a href="{{ route('adminHome') }}" class="a-nav">Home</a>
                 <div class="status-container">
-                    <a href=""><img src="/assets/icon/admin.png" alt=""></a>
-                    <a href="/Admin/AdminLogin/AdminLogin.html" class="a-nav">log out</a>
+                    <div class="hover-admin">
+                        <img class="image-hover" id="img" src="{{ asset('images/admin.png') }}" alt="">
+                        <div class="hover-container" id="hover">
+                            <p>Selamat datang !!</p>
+                            <p>{{ $admin->name }}</p>
+                        </div>
+                    </div>
+                    <a href="{{ route('logout') }}" class="a-nav">log out</a>
                 </div>
             </div>
             <div class="burger">
@@ -26,14 +32,21 @@
                 <div class="line3"></div>
             </div>
             <div class="status-container none">
-                <a href=""><img src="/assets/icon/admin.png" alt=""></a>
-                <a href="" class="a-nav">log out</a>
+                <div class="hover-admin">
+                    <img class="image-hover" id="img2" src="{{ asset('images/admin.png') }}" alt="">
+                    <div class="hover-container" id="hover2">
+                        <p>Selamat datang !!</p>
+                        <p>{{ $admin->name }}</p>
+                    </div>
+                </div>
+                <a href="{{ route('logout') }}" class="a-nav">log out</a>
             </div>
         </div>
         <div class="img-container">
             <img src="{{ asset('images/logo.png') }}" alt="">
         </div>
     </nav>
+    
     <div class="container">
         <div class="button blue"><a href="{{ route('materi.create') }}">Input baru</a><i class="fa-solid fa-plus"></i></div>
         <div class="container-content">
@@ -60,8 +73,8 @@
                 @foreach ($materis as $materi)
                     <div class="uploaded-list">
                         <div class="admin-time">
-                            <p>Admin : Valasinov Kormeno</p>
-                            <p>{{ $materi->created_at->format('d-m-Y') }} <span>{{ $materi->created_at->format('H:i:s') }}</span></p>
+                            <p>{{ $materi->created_at->format('d-m-Y') }}</p>
+                            <p>{{ $materi->created_at->format('H:i:s') }}</p>
                         </div>
                         <div class="content">
                             <img src="{{ asset('images/programming.jpg') }}" alt="" class="bg">

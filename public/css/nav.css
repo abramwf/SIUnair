@@ -59,6 +59,29 @@
     cursor: pointer;
 }
 
+.hover-admin {
+    position: relative;
+}
+
+.hover-container {
+    padding: 6px 10px;
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    top: 50px;
+    left: -10px;
+    z-index: 999;
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.05); 
+    border-radius: 5px;
+    background-color: #e8f0f5;
+    border: 2px solid #F8F2CE;
+    display: none;
+}
+
+.hover-container p {
+    font-size: large;
+}
+
 .burger {
     display: none;
     cursor: pointer;
