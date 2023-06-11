@@ -61,8 +61,8 @@
                 @foreach ($materi_paginates as $materi)
                     <div class="item-container">
                         <div class="admin-date">
-                            <p>Admin : @if(Auth::check()) {{ Auth::user()->name }} @endif</p>
-                            <p>{{ $materi->created_at->format('d-m-Y') }} <span>{{ $materi->created_at->format('H:i:s') }}</span></p>
+                            <p>{{ $materi->created_at->format('d-m-Y') }}</p>
+                            <p>{{ $materi->created_at->format('H:i:s') }}</p>
                         </div>
                         <div class="item-content-container">
                             <div class="item-content">

@@ -50,7 +50,7 @@
                     @foreach ($materi_paginates as $materi)
                         <div class="item-container">
                             <div class="admin-date">
-                                <p>Admin : Valasinov Kormeno</p>
+                                <p></p>
                                 <p>{{ $materi->created_at->format('d-m-Y') }} <span>{{ $materi->created_at->format('H:i:s') }}</span></p>
                             </div>
                             <div class="item-content-container">

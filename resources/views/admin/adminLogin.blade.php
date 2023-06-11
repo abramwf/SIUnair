@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/admin/adminLogin.css') }}">
     <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
     <link rel="stylesheet" href="{{ asset('css/env.css') }}">
-    <title>Admin List Page</title>
+    <title>Admin Login</title>
 </head>
 <body>
     <nav class="navbars">
@@ -34,7 +34,7 @@
             </div>
             <div class="login-input">
                 <label for="password">Password</label>
-                <input type="text" id="password" name="password" required>
+                <input type="password" id="password" name="password" required>
                 @error('password')
                     <p style="color: red">{{ $message }}</p>
                 @enderror
