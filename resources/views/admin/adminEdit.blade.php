@@ -90,37 +90,6 @@
                     <option value="{{ $matkul->id }}" data-semester-id="{{ $matkul->semester_id }}" @if($matkul->id == $materis->matkul_id)selected @endif>{{ $matkul->matkul }}</option>
                 @endforeach
             </select>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-            <script>
-                $(document).ready(function() {
-                    $('#matkul').prop('disabled', true); 
-
-                    $('#smt').change(function() {
-                        var selectedSemesterId = $(this).val();
-
-                        if (selectedSemesterId === '') {
-                            $('#matkul').prop('disabled', false); 
-                            return;
-                        }
-
-                        $('#matkul').prop('disabled', false); 
-
-                        $('#matkul option').each(function() {
-                            var semesterId = $(this).data('semester-id');
-
-                            if (semesterId == selectedSemesterId || semesterId === undefined) {
-                                $(this).show();
-                            } else {
-                                $(this).hide();
-                            }
-                        });
-                    });
-                });
-
-                $('#smt').click(function() { 
-                    $('#matkul').val('');
-                });
-            </script>
         </div>
         {{-- <div class="form-input">
             <label for="img">Foto Profil Materi</label>
@@ -145,8 +114,36 @@
            Update
         </button>
     </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        
+        $(document).ready(function() {
+        $('#matkul').prop('disabled', true); 
+
+        $('#smt').change(function() {
+            var selectedSemesterId = $(this).val();
+
+            if (selectedSemesterId === '') {
+                $('#matkul').prop('disabled', false); 
+                return;
+            }
+
+            $('#matkul').prop('disabled', false); 
+
+            $('#matkul option').each(function() {
+                var semesterId = $(this).data('semester-id');
+
+                if (semesterId == selectedSemesterId || semesterId === undefined) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+    });
+
+    $('#smt').click(function() { 
+        $('#matkul').val('');
+    });
     </script>
     <script src="{{ asset('js/adminInput.js') }}"></script>
     <script src="{{ asset('js/nav.js') }}"></script>

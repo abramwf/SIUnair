@@ -89,45 +89,7 @@
                     <option value="{{ $matkul->id }}" data-semester-id="{{ $matkul->semester_id }}">{{ $matkul->matkul }}</option>
                 @endforeach
             </select>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-            <script>
-                $(document).ready(function() {
-                    $('#smt').val('');
-                    $('#matkul').val('').prop('disabled', true); 
-
-                    $('#smt').change(function() {
-                        var selectedSemesterId = $(this).val();
-
-                        if (selectedSemesterId === '') {
-                            $('#matkul').val('').prop('disabled', true); 
-                            return;
-                        }
-
-                        $('#matkul').prop('disabled', false); 
-
-                        $('#matkul option').each(function() {
-                            var semesterId = $(this).data('semester-id');
-
-                            if (semesterId == selectedSemesterId || semesterId === undefined) {
-                                $(this).show();
-                            } else {
-                                $(this).hide();
-                            }
-                        });
-                    });
-                });
-            </script>
         </div>
-        {{-- <div class="form-input">
-            <label for="img">Foto Profil Materi</label>
-            <div class="file-name-container">
-                <p class="file-name"></p>
-                <input type="file" id="img" accept="image/png, image/gif, image/jpeg" name="foto">
-            </div>
-            <div class="image-container">
-                <i class="fa fa-times"></i>
-            </div>
-        </div> --}}
         <div class="form-input">
             <label>Deskripsi</label>
             <textarea name="deskripsi" id="deskripsi"></textarea>
@@ -140,6 +102,38 @@
            Submit
         </button>
     </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+        $('#smt').val('');
+        $('#matkul').val('').prop('disabled', true); 
+
+        $('#smt').change(function() {
+            var selectedSemesterId = $(this).val();
+
+            if (selectedSemesterId === '') {
+                $('#matkul').val('').prop('disabled', true); 
+                return;
+            }
+
+            $('#matkul').prop('disabled', false); 
+
+            $('#matkul option').each(function() {
+                var semesterId = $(this).data('semester-id');
+
+                if (semesterId == selectedSemesterId || semesterId === undefined) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+    });
+
+    $('#smt').click(function() { 
+        $('#matkul').val('');
+    });
+    </script>
     <script src="{{ asset('js/adminInput.js') }}"></script>
     <script src="{{ asset('js/nav.js') }}"></script>
 </body>

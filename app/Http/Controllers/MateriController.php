@@ -100,12 +100,6 @@ class MateriController extends Controller
         ]);
 
         $requestData = $request->all();
-
-        if ($request->hasFile('foto')) {
-            $imagePath = $request->file('foto')->store('images', 'public');
-            $requestData['foto'] = $imagePath;
-        }
-
         $requestData["ebook"] = $request->has('ebook');
         $requestData["ppt"] = $request->has('ppt');
         $requestData["contoh_soal"] = $request->has('contoh_soal');
