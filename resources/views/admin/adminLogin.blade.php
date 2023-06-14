@@ -22,28 +22,32 @@
         <div class="heading">
             <h1>Login Admin</h1>
         </div>
-        
         <form class="login-form" action="{{ route('loginProcess') }}" method="POST">
             @csrf
             <div class="login-input">
                 <label for="email"> Email </label>    
-                <input type="email" id="email" name="email">
+                <input type="text" id="email" name="email">
                 @error('email')
-                    <p style="color: red">{{ $message }}</p>
+                    <p id="p1" class="error">{{ $message }}</p>
                 @enderror    
             </div>
             <div class="login-input">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password">
                 @error('password')
-                    <p style="color: red">{{ $message }}</p>
+                    <p id="p2" class="error">{{ $message }}</p>
                 @enderror
             </div>
-            
-            <button type="submit" class="button">Login</button>
+            @if (session('failed'))
+                <div id="alert" class="alert-danger">
+                    <div id="fail" class="failed">
+                        {{ session('failed') }}
+                    </div>
+                </div>
+            @endif
+            <button type="submit" class="button" style="color: white;">Login</button>
         </form>
     </div>
-    
     <script src="{{ asset('js/nav.js') }}"></script> 
 </body>
 </html>

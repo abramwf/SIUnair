@@ -32,6 +32,26 @@ input {
     flex-direction: column;
 }
 
+.error, .failed {
+    animation: fadeOut 7s ease-in-out forwards;
+    color: red;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+        position: absolute;
+        left: -10000px;
+        bottom: -10000px;
+        margin: 0;
+        padding: 0;
+    }
+}
+
 .button {
     align-self: flex-end;
     margin-right: 35px;
